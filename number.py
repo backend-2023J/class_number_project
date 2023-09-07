@@ -1,3 +1,5 @@
+import math
+
 class Number:
     def __init__(self, value: int):
         self.value = value
@@ -9,7 +11,7 @@ class Number:
 
         returns: int
         """
-        pass
+        return self.value
 
     def is_odd(self):
         """
@@ -34,7 +36,16 @@ class Number:
 
         returns: bool
         """
-        pass
+        count = 0
+        if self.value == 1:
+            return 'Oh no 1'
+        elif self.value>1:
+            for i in range(1,self.value+1):
+                if self.value%i==0:
+                    count += 1
+            return count<=2
+        else:
+            return f'{self.value} is negative number'
 
     def get_divisors(self):
         """
@@ -42,7 +53,11 @@ class Number:
 
         returns: list
         """
-        pass
+        lst_divisors = []
+        for i in range(1,self.value+1):
+            if self.value%i==0:
+                lst_divisors.append(i)
+        return lst_divisors
 
     def get_length(self):
         """
@@ -50,7 +65,7 @@ class Number:
 
         returns: int
         """
-        pass
+        return len(str(self.value))
 
     def get_sum(self):
         """
@@ -58,7 +73,7 @@ class Number:
 
         returns: int
         """
-        pass
+        return [i for i in str(self.value)]
 
     def get_reverse(self):
         """
@@ -66,7 +81,7 @@ class Number:
 
         returns: int
         """
-        pass
+        return int(str(self.value)[::-1])
 
     def is_palindrome(self):
         """
@@ -74,7 +89,7 @@ class Number:
 
         returns: bool
         """
-        pass
+        return self.value == int(str(self.value)[::-1])
 
     def get_digits(self):
         """
@@ -82,7 +97,7 @@ class Number:
 
         returns: list
         """
-        pass
+        return [int(i) for i in str(self.value)]
 
     def get_max(self):
         """
@@ -90,7 +105,7 @@ class Number:
 
         returns: int
         """
-        pass
+        return max([int(i) for i in str(self.value)])
 
     def get_min(self):
         """
@@ -98,7 +113,7 @@ class Number:
 
         returns: int
         """
-        pass
+        return min([int(i) for i in str(self.value)])
 
     def get_average(self):
         """
@@ -106,7 +121,7 @@ class Number:
 
         returns: float
         """
-        pass
+        return sum([int(i) for i in str(self.value)])/len(str(self.value))
 
     def get_median(self):
         """
@@ -114,7 +129,12 @@ class Number:
 
         returns: float
         """
-        pass
+        if len(str(self.value))%2==1:
+            position = math.ceil(len(str(self.value))/2-1)
+            return float(str(self.value)[position])
+        else:
+            position = math.ceil(len(str(self.value))/2)
+            return float(str(self.value)[position-1]), float(str(self.value)[position])
 
     def get_range(self):
         """
@@ -122,7 +142,7 @@ class Number:
 
         returns: list
         """
-        pass
+        return [i for i in range(1, self.value+1)]
 
     def get_frequency(self):
         """
@@ -134,5 +154,17 @@ class Number:
     
 
 # Create a new instance of Number
-number = Number(3)
-print(number.is_even())
+number = Number(4214)
+print("Number is:", number.get_number())
+print(f'{number.value} is odd:', number.is_odd())
+print(f'{number.value} is even:', number.is_even())
+print(f'{number.value} is prime:', number.is_prime())
+print(f'{number.value}\'s divisors:', number.get_divisors())
+print(f'{number.value} was reverse:', number.get_reverse())
+print(f'{number.value} is palindrome:', number.is_palindrome())
+print(f'{number.value}\'s digits:', number.get_digits())
+print("Max digit:", number.get_max())
+print("Min digit:", number.get_min())
+print(f'{number.value} - average of digits:', number.get_average())
+print("Median:", number.get_median())
+print('Range:', number.get_range())
