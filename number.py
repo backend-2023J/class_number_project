@@ -18,7 +18,7 @@ class Number:
         returns: bool
 
         """
-        pass
+        return self.value%2==1
 
     def is_even(self):
         """
@@ -26,7 +26,7 @@ class Number:
 
         returns: bool
         """
-        pass
+        return self.value%2==0
 
     def is_prime(self):
         """
@@ -135,3 +135,4 @@ class Number:
 
 # Create a new instance of Number
 number = Number(3)
+print(number.is_even())
