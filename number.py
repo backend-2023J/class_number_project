@@ -35,15 +35,28 @@ class Number:
 
         returns: bool
         """
-        
+        s=0
+        for i in range(1,self.value+1):
+            if (self.value%i==0):
+                s+=1
+        if s==2:
+            return True
+        else:
+            return False
+
 
     def get_divisors(self):
         """
-        Returns a list of all the divisors of the number.
+            Returns a list of all the divisors of the number.
 
-        returns: list
+            returns: list
         """
-        pass
+        a=[]
+        for i in range(1,self.value+1):
+            if self.value%i==0:
+                a.append(i)
+        return a
+        
 
     def get_length(self):
         """
@@ -51,7 +64,8 @@ class Number:
 
         returns: int
         """
-        pass
+        a=len(str(self.value))
+        return int(a)
 
     def get_sum(self):
         """
@@ -59,8 +73,11 @@ class Number:
 
         returns: int
         """
-        pass
-
+        i = 0
+        while self.value>0:
+            i+=self.value%10
+            self.value //= 10
+        return i
     def get_reverse(self):
         """
         Returns the number in reverse.
@@ -83,7 +100,14 @@ class Number:
 
         returns: list
         """
-        pass
+        a=[]
+        for i in  (self.value):
+           
+            if self.value.isdigit()==1:
+               a.append(i)
+                
+        return a
+    
 
     def get_max(self):
         """
@@ -91,7 +115,11 @@ class Number:
 
         returns: int
         """
-        pass
+        a=[]
+        for i in  str(self.value):
+            if i.isdigit()==1:
+                a.append(int(i))
+        return max(a)
 
     def get_min(self):
         """
@@ -99,7 +127,11 @@ class Number:
 
         returns: int
         """
-        pass
+        b = []
+        for i in str(self.value):
+            if i.isdigit()==1:
+                b.append(int(i))
+        return min(b)
 
     def get_average(self):
         """
@@ -135,5 +167,5 @@ class Number:
     
 
 # Create a new instance of Number
-number = Number(3)
-print(number.get_number())
+number = Number(3456789)
+print(number.get_min())
