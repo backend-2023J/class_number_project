@@ -84,7 +84,8 @@ class Number:
 
         returns: int
         """
-        pass
+        a=self.value[::-1]
+        return int(a)
 
     def is_palindrome(self):
         """
@@ -92,7 +93,10 @@ class Number:
 
         returns: bool
         """
-        pass
+        if  (self.value[::-1]==self.value):
+            return True
+        
+        return False
 
     def get_digits(self):
         """
@@ -101,11 +105,9 @@ class Number:
         returns: list
         """
         a=[]
-        for i in  (self.value):
-           
-            if self.value.isdigit()==1:
-               a.append(i)
-                
+        for i in str(self.value):
+            if i.isdigit()==1:
+               a.append(i)    
         return a
     
 
@@ -167,5 +169,5 @@ class Number:
     
 
 # Create a new instance of Number
-number = Number(3456789)
-print(number.get_min())
+number = Number("18")
+print(number.get_reverse())
