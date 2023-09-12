@@ -1,3 +1,5 @@
+import math
+
 class Number:
     def __init__(self, value: int):
         self.value = value
@@ -10,7 +12,7 @@ class Number:
         returns: int
         """
         return self.value
-    
+
 
     def is_odd(self):
         """
@@ -35,6 +37,7 @@ class Number:
 
         returns: bool
         """
+
         s=0
         for i in range(1,self.value+1):
             if (self.value%i==0):
@@ -51,6 +54,7 @@ class Number:
 
             returns: list
         """
+
         a=[]
         for i in range(1,self.value+1):
             if self.value%i==0:
@@ -58,14 +62,17 @@ class Number:
         return a
         
 
+
     def get_length(self):
         """
         Returns the number of digits in the number.
 
         returns: int
         """
+
         a=len(str(self.value))
         return int(a)
+
 
     def get_sum(self):
         """
@@ -73,19 +80,26 @@ class Number:
 
         returns: int
         """
+
         i = 0
         while self.value>0:
             i+=self.value%10
             self.value //= 10
         return i
+=======
+        return [i for i in str(self.value)]
+
+
     def get_reverse(self):
         """
         Returns the number in reverse.
 
         returns: int
         """
-        a=self.value[::-1]
-        return int(a)
+
+
+        return int(str(self.value)[::-1])
+
 
     def is_palindrome(self):
         """
@@ -93,10 +107,12 @@ class Number:
 
         returns: bool
         """
+
         if  (self.value[::-1]==self.value):
             return True
         
         return False
+
 
     def get_digits(self):
         """
@@ -104,6 +120,7 @@ class Number:
 
         returns: list
         """
+
         a=[]
         for i in str(self.value):
             if i.isdigit()==1:
@@ -111,17 +128,20 @@ class Number:
         return a
     
 
+
     def get_max(self):
         """
         Returns the largest digit in the number.
 
         returns: int
         """
+
         a=[]
         for i in  str(self.value):
             if i.isdigit()==1:
                 a.append(int(i))
         return max(a)
+
 
     def get_min(self):
         """
@@ -129,11 +149,13 @@ class Number:
 
         returns: int
         """
+
         b = []
         for i in str(self.value):
             if i.isdigit()==1:
                 b.append(int(i))
         return min(b)
+
 
     def get_average(self):
         """
@@ -141,7 +163,7 @@ class Number:
 
         returns: float
         """
-        pass
+        return sum([int(i) for i in str(self.value)])/len(str(self.value))
 
     def get_median(self):
         """
@@ -149,7 +171,12 @@ class Number:
 
         returns: float
         """
-        pass
+        if len(str(self.value))%2==1:
+            position = math.ceil(len(str(self.value))/2-1)
+            return float(str(self.value)[position])
+        else:
+            position = math.ceil(len(str(self.value))/2)
+            return float(str(self.value)[position-1]), float(str(self.value)[position])
 
     def get_range(self):
         """
@@ -157,7 +184,7 @@ class Number:
 
         returns: list
         """
-        pass
+        return [i for i in range(1, self.value+1)]
 
     def get_frequency(self):
         """
@@ -168,6 +195,7 @@ class Number:
         pass
     
 
-# Create a new instance of Number
+
 number = Number("18")
 print(number.get_reverse())
+
